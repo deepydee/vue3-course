@@ -6,6 +6,16 @@ const app = Vue.createApp({
       confirmedName: '',
     };
   },
+  computed: {
+    fullname() {
+      console.log('Running');
+      if (this.name === '') {
+        return '';
+      }
+
+      return `${this.name} Semenoff`;
+    }
+  },
   methods: {
     add(num) {
       this.counter += num;
@@ -13,14 +23,25 @@ const app = Vue.createApp({
     subtract(num) {
       this.counter -= num;
     },
-    setName(event, lastname) {
-      this.name = `${event.target.value} ${lastname}`;
+    setName(event) {
+      this.name = event.target.value;
     },
     confirmInput() {
       this.confirmedName = this.name;
     },
+    outputFullName() {
+      console.log('Running');
+      if (this.name === '') {
+        return '';
+      }
+
+      return `${this.name} Semenoff`;
+    },
     submitForm() {
       alert('Submitted!');
+    },
+    resetInput() {
+      this.name = '';
     }
   }
 });
